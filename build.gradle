@@ -40,7 +40,6 @@ tasks.withType(Checkstyle) {
   }
 }
 
-
 application {
   mainClass = 'motemere.analiser.core.Application'
 }
