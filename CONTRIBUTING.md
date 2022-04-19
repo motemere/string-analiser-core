@@ -1,0 +1,4 @@
+#CONTRIBUTING
+
+Java 17
+Gradle 7.4.2
