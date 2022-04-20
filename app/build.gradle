@@ -30,7 +30,7 @@ dependencies {
 
 application {
     // Define the main class for the application.
-    mainClass = 'me.motemere.stringanalisercore.App'
+    mainClass = 'string.analiser.core.App'
 }
 
 tasks.named('test') {
