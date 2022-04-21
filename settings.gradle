@@ -9,3 +9,5 @@
 
 rootProject.name = 'string-analiser-core'
 include('app')
+include 'wordsCountAnalyser'
+
