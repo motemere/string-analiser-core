@@ -21,9 +21,6 @@ import java.util.stream.Collectors;
  */
 public final class WordsAnalyzer {
 
-  private WordsAnalyzer() {
-  }
-
   /**
    * Function counts words in file and return a map in which the keys are words and values is count
    * of this word in the file.
@@ -31,7 +28,7 @@ public final class WordsAnalyzer {
    * @param path file for counting
    * @return Optional with map with words count or Optional.empty() if we get an exception
    */
-  public static Optional<HashMap<String, Integer>> getWordsCount(final Path path)
+  public Optional<HashMap<String, Integer>> getWordsCount(final Path path)
       throws IOException {
 
     var result = new HashMap<String, Integer>();
@@ -50,7 +47,7 @@ public final class WordsAnalyzer {
    * @param line str for counting
    * @return Optional with map with words count or Optional.empty() if line is null or line is empty
    */
-  public static Optional<HashMap<String, Integer>> getWordsCount(final String line) {
+  public Optional<HashMap<String, Integer>> getWordsCount(final String line) {
 
     if (line == null || line.trim().isEmpty()) {
       return Optional.empty();

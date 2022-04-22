@@ -1,17 +1,26 @@
 package string.analiser.core;
 
-import static org.junit.jupiter.api.Assertions.assertEquals;
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import org.junit.jupiter.api.BeforeEach;
+import org.junit.jupiter.api.DisplayName;
+import org.junit.jupiter.api.Test;
 
 import java.io.IOException;
 import java.nio.file.Path;
 import java.util.HashMap;
 import java.util.Optional;
-import org.junit.jupiter.api.DisplayName;
-import org.junit.jupiter.api.Test;
+
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertNotNull;
 
 @SuppressWarnings("MagicNumber")
 class WordsAnalyzerTest {
+
+  private WordsAnalyzer wordsAnalyzer;
+
+  @BeforeEach
+  void init() {
+    wordsAnalyzer = new WordsAnalyzer();
+  }
 
   @Test
   @DisplayName("Count words in string")
@@ -25,7 +34,7 @@ class WordsAnalyzerTest {
     expectedMap.put("world1", 1);
     expectedMap.put("world2", 1);
 
-    final Optional<HashMap<String, Integer>> wordsCount = WordsAnalyzer.getWordsCount(testStr);
+    final Optional<HashMap<String, Integer>> wordsCount = wordsAnalyzer.getWordsCount(testStr);
 
     wordsCount.ifPresent(resultMap -> assertEquals(resultMap, expectedMap));
   }
@@ -33,7 +42,7 @@ class WordsAnalyzerTest {
   @Test
   @DisplayName("Count words in file")
   void getWordsCountFromFile() throws IOException {
-    assertNotNull(WordsAnalyzer
+    assertNotNull(wordsAnalyzer
         .getWordsCount(Path.of("src/test/resources/text"))
     );
   }
